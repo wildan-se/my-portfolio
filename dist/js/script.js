@@ -58,24 +58,24 @@ if (
 }
 
 //animasi client section
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".client-card");
-  cards.forEach((card, index) => {
-    card.style.setProperty("--index", index);
-  });
+// document.addEventListener("DOMContentLoaded", () => {
+//   const cards = document.querySelectorAll(".client-card");
+//   cards.forEach((card, index) => {
+//     card.style.setProperty("--index", index);
+//   });
 
-  // GSAP Animation for Stats
-  gsap.from(".grid-cols-3 > div", {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    scrollTrigger: {
-      trigger: ".grid-cols-3",
-      start: "top 80%",
-    },
-  });
-});
+//   // GSAP Animation for Stats
+//   gsap.from(".grid-cols-3 > div", {
+//     y: 100,
+//     opacity: 0,
+//     duration: 1,
+//     stagger: 0.2,
+//     scrollTrigger: {
+//       trigger: ".grid-cols-3",
+//       start: "top 80%",
+//     },
+//   });
+// });
 
 //animasi contact section
 gsap.registerPlugin(ScrollTrigger);
@@ -105,3 +105,75 @@ gsap.from(".grid-cols-3 > div", {
     start: "top 80%",
   },
 });
+
+// Modal functionality
+class Modal {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Event listeners
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest("[data-modal-target]");
+      const closeBtn = e.target.closest("[data-modal-close]");
+
+      if (trigger) {
+        e.preventDefault();
+        const modal = document.getElementById(trigger.dataset.modalTarget);
+        this.openModal(modal);
+      }
+
+      if (closeBtn) {
+        e.preventDefault();
+        const modal = closeBtn.closest('[role="dialog"]');
+        this.closeModal(modal);
+      }
+    });
+
+    // Close modal when clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        e.target.hasAttribute("role") &&
+        e.target.getAttribute("role") === "dialog"
+      ) {
+        this.closeModal(e.target);
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        const modal = document.querySelector('[role="dialog"]:not(.hidden)');
+        if (modal) this.closeModal(modal);
+      }
+    });
+  }
+
+  openModal(modal) {
+    if (!modal) return;
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
+    // Focus management
+    const closeButton = modal.querySelector("[data-modal-close]");
+    if (closeButton) {
+      setTimeout(() => closeButton.focus(), 100);
+    }
+  }
+
+  closeModal(modal) {
+    if (!modal) return;
+    modal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+
+    // Return focus
+    const trigger = document.querySelector(`[data-modal-target="${modal.id}"]`);
+    if (trigger) {
+      trigger.focus();
+    }
+  }
+}
+
+// Initialize modal functionality
+new Modal();
