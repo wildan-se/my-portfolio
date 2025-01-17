@@ -58,24 +58,24 @@ if (
 }
 
 //animasi client section
-// document.addEventListener("DOMContentLoaded", () => {
-//   const cards = document.querySelectorAll(".client-card");
-//   cards.forEach((card, index) => {
-//     card.style.setProperty("--index", index);
-//   });
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".client-card");
+  cards.forEach((card, index) => {
+    card.style.setProperty("--index", index);
+  });
 
-//   // GSAP Animation for Stats
-//   gsap.from(".grid-cols-3 > div", {
-//     y: 100,
-//     opacity: 0,
-//     duration: 1,
-//     stagger: 0.2,
-//     scrollTrigger: {
-//       trigger: ".grid-cols-3",
-//       start: "top 80%",
-//     },
-//   });
-// });
+  // GSAP Animation for Stats
+  gsap.from(".grid-cols-3 > div", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: ".grid-cols-3",
+      start: "top 80%",
+    },
+  });
+});
 
 //animasi contact section
 gsap.registerPlugin(ScrollTrigger);
@@ -106,7 +106,7 @@ gsap.from(".grid-cols-3 > div", {
   },
 });
 
-// Modal functionality
+// Fungsi modal
 class Modal {
   constructor() {
     this.init();
