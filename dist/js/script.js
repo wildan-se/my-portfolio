@@ -36,25 +36,33 @@ window.addEventListener("click", function (e) {
 const darkToggle = document.querySelector("#dark-toggle");
 const html = document.querySelector("html");
 
-darkToggle.addEventListener("click", function () {
-  if (darkToggle.checked) {
+// Fungsi untuk mengatur tema sesuai toggle
+function setTheme(isDark) {
+  if (isDark) {
     html.classList.add("dark");
     localStorage.theme = "dark";
+    darkToggle.checked = true;
   } else {
     html.classList.remove("dark");
     localStorage.theme = "light";
+    darkToggle.checked = false;
   }
+}
+
+// Event saat toggle diklik
+darkToggle.addEventListener("click", function () {
+  setTheme(darkToggle.checked);
 });
 
-// pindahkan posisi toggle sesuai mode
+// Atur tema saat halaman dimuat
 if (
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
     window.matchMedia("(prefers-color-scheme: dark)").matches)
 ) {
-  darkToggle.checked = true;
+  setTheme(true);
 } else {
-  darkToggle.checked = false;
+  setTheme(false);
 }
 
 //animasi client section
