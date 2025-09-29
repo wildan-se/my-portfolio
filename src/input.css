@@ -2,8 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Inter", sans-serif;
+/* Enhanced Typography */
+@layer base {
+  html {
+    font-family: "Inter", "Plus Jakarta Sans", system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      "Noto Sans", sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  body {
+    font-family: "Inter", "Plus Jakarta Sans", sans-serif;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings with better typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+
+  /* Better paragraph typography */
+  p {
+    font-family: "Inter", sans-serif;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  /* Code and monospace fonts */
+  code,
+  pre {
+    font-family: "JetBrains Mono", "Fira Code", Consolas, "Liberation Mono",
+      Menlo, Courier, monospace;
+  }
+}
+
+/* Custom font weight utilities */
+@layer utilities {
+  .font-light {
+    font-weight: 300;
+  }
+  .font-normal {
+    font-weight: 400;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+  .font-bold {
+    font-weight: 700;
+  }
+  .font-extrabold {
+    font-weight: 800;
+  }
+  .font-black {
+    font-weight: 900;
+  }
+
+  /* Better text spacing */
+  .text-tight {
+    letter-spacing: -0.02em;
+  }
+  .text-normal {
+    letter-spacing: -0.01em;
+  }
+  .text-wide {
+    letter-spacing: 0.02em;
+  }
+
+  /* Font display utilities */
+  .font-display {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .font-body {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
 
 .navbar-fixed {
