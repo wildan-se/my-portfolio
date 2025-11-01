@@ -1,38 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>portfolio wildan</title>
-  <!-- Google Fonts - Add these lines -->
+
+  <!-- SEO Meta Tags -->
+  <title>Muhammad Wildan - Frontend Developer Portfolio | Web Developer Tangerang</title>
+  <meta name="description"
+    content="Portfolio Muhammad Wildan, Frontend Developer profesional di Tangerang. Spesialis web development modern dengan React, Vue, dan Tailwind CSS. Siap membantu proyek digital Anda.">
+  <meta name="keywords"
+    content="Muhammad Wildan, Frontend Developer, Web Developer, Portfolio, Tangerang, React, Vue, Tailwind CSS, JavaScript">
+  <meta name="author" content="Muhammad Wildan">
+  <link rel="canonical" href="https://wildanseptiano.com/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wildanseptiano.com/">
+  <meta property="og:title" content="Muhammad Wildan - Frontend Developer Portfolio">
+  <meta property="og:description"
+    content="Frontend Developer profesional di Tangerang. Spesialis web development modern dengan React, Vue, dan Tailwind CSS. Mari berkolaborasi!">
+  <meta property="og:image" content="https://wildanseptiano.com/assets/preview-image.jpg">
+  <meta property="og:site_name" content="Muhammad Wildan Portfolio">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://wildanseptiano.com/">
+  <meta name="twitter:title" content="Muhammad Wildan - Frontend Developer Portfolio">
+  <meta name="twitter:description"
+    content="Frontend Developer profesional di Tangerang. Spesialis web development modern. Mari berkolaborasi!">
+  <meta name="twitter:image" content="https://wildanseptiano.com/assets/preview-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#10B981">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link href="/dist/output.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Wildan Septiano",
+    "jobTitle": "Frontend Developer",
+    "url": "https://wildanseptiano.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/muhammadwildanseptiano/",
+      "https://github.com/wildan-se",
+      "https://www.instagram.com/wlse._/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tangerang",
+      "addressCountry": "ID"
+    },
+    "email": "idank1945@gmail.com",
+    "telephone": "+6285714662611",
+    "knowsAbout": ["Web Development", "Frontend Development", "React", "Vue.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+    "alumniOf": "Your University/School Name",
+    "description": "Frontend Developer profesional dengan pengalaman dalam membangun aplikasi web modern menggunakan React, Vue, dan Tailwind CSS."
+  }
+  </script>
 </head>
 
 <body class="scroll-smooth">
+  <!-- Skip to Content Link for Accessibility -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:shadow-lg">
+    Skip to main content
+  </a>
+
   <!-- Header Start -->
-  <header class="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent">
+  <header class="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent" role="banner">
     <div class="container">
       <div class="relative flex items-center justify-between">
         <div class="px-4">
-          <a href="#home" class="block py-6 text-lg font-bold text-primary">Muhammad Wildan</a>
+          <a href="#home" class="block py-6 text-lg font-bold text-primary" aria-label="Muhammad Wildan - Home">Muhammad
+            Wildan</a>
         </div>
         <div class="flex items-center px-4">
-          <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden">
+          <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden"
+            aria-label="Toggle mobile menu" aria-expanded="false">
             <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
             <span class="transition duration-300 ease-in-out hamburger-line"></span>
             <span class="transition duration-300 ease-in-out origin-bottom-left hamburger-line"></span>
           </button>
 
-          <nav id="nav-menu"
+          <nav id="nav-menu" role="navigation" aria-label="Main navigation"
             class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent">
             <ul class="block lg:flex">
               <li class="group">
@@ -81,11 +150,11 @@
   <!-- Header End -->
 
   <!-- Hero Section Start -->
-  <section id="home"
+  <section id="home" role="main" aria-label="Hero section"
     class="relative min-h-screen overflow-hidden transition-colors duration-300 bg-white dark:bg-gray-900">
 
     <div class="absolute inset-0">
-      <div class="absolute inset-0 opacity-20 dark:opacity-30">
+      <div class="absolute inset-0 opacity-20 dark:opacity-30" aria-hidden="true">
         <div
           class="absolute bg-indigo-300 rounded-full w-96 h-96 -top-10 -left-10 dark:bg-indigo-600 mix-blend-multiply dark:mix-blend-overlay filter blur-xl animate-blob">
         </div>
@@ -135,9 +204,10 @@
 
           <div class="flex flex-wrap justify-center gap-4 lg:justify-start animate-fade-in-up animation-delay-800">
 
-            <a href="#contact" class="relative inline-flex items-center justify-center group">
+            <a href="#contact" class="relative inline-flex items-center justify-center group" aria-label="Contact me">
 
-              <button class="relative px-8 py-2 overflow-hidden border-2 border-indigo-600 cursor-pointer group">
+              <button class="relative px-8 py-2 overflow-hidden border-2 border-indigo-600 cursor-pointer group"
+                aria-label="Contact me button">
                 <span
                   class="relative z-10 text-xl font-bold text-white duration-500 group-hover:text-black dark:group-hover:text-white">Hubungi
                   Saya</span>
@@ -153,12 +223,14 @@
               </button>
             </a>
 
-            <a href="dist/cv/cv muhammad wildan.pdf" download class="relative inline-flex items-center justify-center">
+            <a href="dist/cv/Muhammad_Wildan_CV.pdf" download="Muhammad_Wildan_CV.pdf"
+              class="relative inline-flex items-center justify-center" aria-label="Download my CV">
               <button
-                class="px-8 z-30 py-2 bg-emerald-500 rounded-md text-white relative font-bold overflow-hidden transition-all duration-700 [text-shadow:3px_5px_2px_#047857] hover:[text-shadow:2px_2px_2px_#6ee7b7] text-xl after:-z-20 after:absolute after:h-1 after:w-1 after:bg-emerald-800 after:left-5 after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700">
+                class="px-8 z-30 py-2 bg-emerald-500 rounded-md text-white relative font-bold overflow-hidden transition-all duration-700 [text-shadow:3px_5px_2px_#047857] hover:[text-shadow:2px_2px_2px_#6ee7b7] text-xl after:-z-20 after:absolute after:h-1 after:w-1 after:bg-emerald-800 after:left-5 after:bottom-0 after:translate-y-full after:rounded-md after:hover:scale-[300] after:hover:transition-all after:hover:duration-700 after:transition-all after:duration-700"
+                aria-label="Download CV button">
                 <span class="flex items-center gap-2">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                       d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
                     </path>
@@ -1049,65 +1121,69 @@
               </p>
             </div>
 
-            <form class="space-y-6">
+            <form id="contact-form" class="space-y-6" novalidate>
               <!-- Name Field -->
               <div class="group">
-                <label class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                  Nama Lengkap
+                <label for="name" class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  Nama Lengkap <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
-                  <input type="text"
+                  <input type="text" id="name" name="name" required
                     class="w-full px-4 py-3.5 transition-all duration-300 border rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 focus:ring-4 focus:ring-purple-500/20 dark:focus:ring-purple-400/20 hover:border-purple-300 dark:hover:border-purple-600"
                     placeholder="Masukkan nama lengkap" />
                   <div
                     class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none rounded-xl bg-gradient-to-r from-purple-600/5 to-indigo-600/5 group-focus-within:opacity-100">
                   </div>
                 </div>
+                <span class="hidden mt-1 text-sm text-red-500 error-message" id="name-error"></span>
               </div>
 
               <!-- Email Field -->
               <div class="group">
-                <label class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                  Email Address
+                <label for="email" class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  Email Address <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
-                  <input type="email"
+                  <input type="email" id="email" name="email" required
                     class="w-full px-4 py-3.5 transition-all duration-300 border rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/20 dark:focus:ring-indigo-400/20 hover:border-indigo-300 dark:hover:border-indigo-600"
                     placeholder="email@example.com" />
                   <div
                     class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none rounded-xl bg-gradient-to-r from-indigo-600/5 to-purple-600/5 group-focus-within:opacity-100">
                   </div>
                 </div>
+                <span class="hidden mt-1 text-sm text-red-500 error-message" id="email-error"></span>
               </div>
 
               <!-- Message Field -->
               <div class="group">
-                <label class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                  Pesan Anda
+                <label for="message" class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  Pesan Anda <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
-                  <textarea
+                  <textarea id="message" name="message" required
                     class="w-full px-4 py-3.5 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-purple-500 dark:focus:border-purple-400 focus:ring-4 focus:ring-purple-500/20 dark:focus:ring-purple-400/20 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 min-h-[180px] resize-y"
                     placeholder="Ceritakan tentang proyek atau pertanyaan Anda..."></textarea>
                   <div
                     class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none rounded-xl bg-gradient-to-r from-purple-600/5 to-indigo-600/5 group-focus-within:opacity-100">
                   </div>
                 </div>
+                <span class="hidden mt-1 text-sm text-red-500 error-message" id="message-error"></span>
               </div>
 
               <!-- Submit Button -->
               <div class="pt-2">
                 <button type="submit"
-                  class="w-full px-8 py-4 text-base font-bold text-white transition-all duration-500 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 hover:shadow-2xl hover:shadow-purple-500/50 dark:hover:shadow-purple-500/30 hover:-translate-y-0.5 active:translate-y-0 group">
+                  class="w-full px-8 py-4 text-base font-bold text-white transition-all duration-500 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 hover:shadow-2xl hover:shadow-purple-500/50 dark:hover:shadow-purple-500/30 hover:-translate-y-0.5 active:translate-y-0 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Submit contact form">
                   <span class="flex items-center justify-center gap-2">
                     <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
+                      stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                     </svg>
                     Kirim Pesan
                     <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
+                      stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
@@ -1115,6 +1191,19 @@
                 </button>
               </div>
             </form>
+
+            <!-- Success Message -->
+            <div id="form-success"
+              class="hidden p-4 mt-6 border-l-4 border-green-500 rounded-lg bg-green-50 dark:bg-green-900/20"
+              role="alert">
+              <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <p class="font-semibold text-green-800 dark:text-green-200">Pesan berhasil dikirim! Saya akan segera
+                  menghubungi Anda.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1283,7 +1372,151 @@
 
   <!-- Back to top End -->
 
-  <script src="dist/js/script.js"></script>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-consent"
+    class="fixed bottom-0 left-0 right-0 z-[9998] p-4 transition-transform duration-300 transform translate-y-full bg-slate-900/95 backdrop-blur-sm"
+    role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description">
+    <div class="container flex flex-col items-center justify-between gap-4 mx-auto md:flex-row">
+      <div class="flex-1">
+        <h3 id="cookie-consent-title" class="mb-1 text-lg font-semibold text-white">Cookie Notice</h3>
+        <p id="cookie-consent-description" class="text-sm text-slate-300">Kami menggunakan cookies untuk meningkatkan
+          pengalaman Anda. Dengan melanjutkan, Anda menyetujui penggunaan cookies kami.</p>
+      </div>
+      <div class="flex gap-3">
+        <button id="cookie-accept"
+          class="px-6 py-2 font-semibold text-white transition-all duration-300 rounded-lg bg-emerald-600 hover:bg-emerald-700"
+          aria-label="Accept cookies">
+          Terima
+        </button>
+        <button id="cookie-decline"
+          class="px-6 py-2 font-semibold transition-all duration-300 border rounded-lg text-slate-300 border-slate-600 hover:bg-slate-800"
+          aria-label="Decline cookies">
+          Tolak
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & ScrollTrigger Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <!-- Main Script -->
+  <script src="dist/js/script.js" defer></script>
+
+  <!-- Form Validation & Cookie Script -->
+  <script>
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Cookie Consent Management
+      const cookieConsent = document.getElementById('cookie-consent');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieDecline = document.getElementById('cookie-decline');
+
+      // Check if user has already made a choice
+      if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(() => {
+          cookieConsent.classList.remove('translate-y-full');
+        }, 1000);
+      }
+
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'accepted');
+          cookieConsent.classList.add('translate-y-full');
+          // Initialize analytics here if accepted
+          // initAnalytics();
+        });
+      }
+
+      if (cookieDecline) {
+        cookieDecline.addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'declined');
+          cookieConsent.classList.add('translate-y-full');
+        });
+      }
+
+      // Contact Form Validation
+      const contactForm = document.getElementById('contact-form');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Clear previous errors
+          document.querySelectorAll('.error-message').forEach(el => {
+            el.classList.add('hidden');
+            el.textContent = '';
+          });
+
+          let isValid = true;
+
+          // Validate name
+          const nameInput = document.getElementById('name');
+          if (nameInput && nameInput.value.trim() === '') {
+            showError('name-error', 'Nama lengkap wajib diisi');
+            isValid = false;
+          } else if (nameInput && nameInput.value.trim().length < 3) {
+            showError('name-error', 'Nama minimal 3 karakter');
+            isValid = false;
+          }
+
+          // Validate email
+          const emailInput = document.getElementById('email');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailInput && emailInput.value.trim() === '') {
+            showError('email-error', 'Email wajib diisi');
+            isValid = false;
+          } else if (emailInput && !emailRegex.test(emailInput.value)) {
+            showError('email-error', 'Format email tidak valid');
+            isValid = false;
+          }
+
+          // Validate message
+          const messageInput = document.getElementById('message');
+          if (messageInput && messageInput.value.trim() === '') {
+            showError('message-error', 'Pesan wajib diisi');
+            isValid = false;
+          } else if (messageInput && messageInput.value.trim().length < 10) {
+            showError('message-error', 'Pesan minimal 10 karakter');
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Show success message
+            const successMsg = document.getElementById('form-success');
+            if (successMsg) {
+              successMsg.classList.remove('hidden');
+
+              // Create mailto link
+              const subject = encodeURIComponent('Pesan dari Portfolio Website');
+              const body = encodeURIComponent(
+                `Nama: ${nameInput.value}\nEmail: ${emailInput.value}\n\nPesan:\n${messageInput.value}`
+              );
+              window.location.href = `mailto:idank1945@gmail.com?subject=${subject}&body=${body}`;
+
+              // Reset form
+              contactForm.reset();
+
+              // Hide success message after 5 seconds
+              setTimeout(() => {
+                successMsg.classList.add('hidden');
+              }, 5000);
+            }
+          }
+        });
+      }
+
+      function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        if (errorElement) {
+          errorElement.textContent = message;
+          errorElement.classList.remove('hidden');
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
