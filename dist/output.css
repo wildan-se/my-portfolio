@@ -786,6 +786,10 @@ code,
   top: 100%;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1277,6 +1281,10 @@ code,
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .scroll-smooth {
@@ -3638,6 +3646,18 @@ code,
 }
 
 @media (min-width: 640px) {
+  .sm\:left-20 {
+    left: 5rem;
+  }
+
+  .sm\:h-96 {
+    height: 24rem;
+  }
+
+  .sm\:w-96 {
+    width: 24rem;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 1.3;
