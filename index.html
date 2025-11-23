@@ -1192,6 +1192,18 @@
                 </button>
               </div>
             </form>
+            <script>
+              document.getElementById('contact-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var name = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var message = document.getElementById('message').value.trim();
+                var phone = '6285714662611'; // Nomor WhatsApp Anda
+                var text = `Halo, saya ingin menghubungi Anda!%0A%0ANama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
+                var waUrl = `https://wa.me/${phone}?text=${text}`;
+                window.open(waUrl, '_blank');
+              });
+            </script>
 
             <!-- Success Message -->
             <div id="form-success"
