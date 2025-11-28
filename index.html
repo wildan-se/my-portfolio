@@ -1192,19 +1192,6 @@
                 </button>
               </div>
             </form>
-            <script>
-              document.getElementById('contact-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                var name = document.getElementById('name').value.trim();
-                var email = document.getElementById('email').value.trim();
-                var message = document.getElementById('message').value.trim();
-                var phone = '6285714662611'; // Nomor WhatsApp Anda
-                var text = `Halo, saya ingin menghubungi Anda!%0A%0ANama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
-                var waUrl = `https://wa.me/${phone}?text=${text}`;
-                window.open(waUrl, '_blank');
-              });
-            </script>
-
             <!-- Success Message -->
             <div id="form-success"
               class="hidden p-4 mt-6 border-l-4 border-green-500 rounded-lg bg-green-50 dark:bg-green-900/20"
@@ -1385,31 +1372,6 @@
 
   <!-- Back to top End -->
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-consent"
-    class="fixed bottom-0 left-0 right-0 z-[9998] p-4 transition-transform duration-300 transform translate-y-full bg-slate-900/95 backdrop-blur-sm"
-    role="dialog" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description">
-    <div class="container flex flex-col items-center justify-between gap-4 mx-auto md:flex-row">
-      <div class="flex-1">
-        <h3 id="cookie-consent-title" class="mb-1 text-lg font-semibold text-white">Cookie Notice</h3>
-        <p id="cookie-consent-description" class="text-sm text-slate-300">Kami menggunakan cookies untuk meningkatkan
-          pengalaman Anda. Dengan melanjutkan, Anda menyetujui penggunaan cookies kami.</p>
-      </div>
-      <div class="flex gap-3">
-        <button id="cookie-accept"
-          class="px-6 py-2 font-semibold text-white transition-all duration-300 rounded-lg bg-emerald-600 hover:bg-emerald-700"
-          aria-label="Accept cookies">
-          Terima
-        </button>
-        <button id="cookie-decline"
-          class="px-6 py-2 font-semibold transition-all duration-300 border rounded-lg text-slate-300 border-slate-600 hover:bg-slate-800"
-          aria-label="Decline cookies">
-          Tolak
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- GSAP & ScrollTrigger Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
@@ -1417,38 +1379,12 @@
   <!-- Main Script -->
   <script src="dist/js/script.js" defer></script>
 
-  <!-- Form Validation & Cookie Script -->
+  <!-- Form Validation Script -->
   <script>
     // Wait for DOM to be ready
     document.addEventListener('DOMContentLoaded', function () {
-
-      // Cookie Consent Management
-      const cookieConsent = document.getElementById('cookie-consent');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieDecline = document.getElementById('cookie-decline');
-
-      // Check if user has already made a choice
-      if (!localStorage.getItem('cookieConsent')) {
-        setTimeout(() => {
-          cookieConsent.classList.remove('translate-y-full');
-        }, 1000);
-      }
-
-      if (cookieAccept) {
-        cookieAccept.addEventListener('click', function () {
-          localStorage.setItem('cookieConsent', 'accepted');
-          cookieConsent.classList.add('translate-y-full');
-          // Initialize analytics here if accepted
-          // initAnalytics();
-        });
-      }
-
-      if (cookieDecline) {
-        cookieDecline.addEventListener('click', function () {
-          localStorage.setItem('cookieConsent', 'declined');
-          cookieConsent.classList.add('translate-y-full');
-        });
-      }
+      const whatsappNumber = '6285714662611';
+      const submitButton = document.querySelector('#contact-form button[type="submit"]');
 
       // Contact Form Validation
       const contactForm = document.getElementById('contact-form');
@@ -1497,17 +1433,18 @@
           }
 
           if (isValid) {
+            submitButton && (submitButton.disabled = true);
             // Show success message
             const successMsg = document.getElementById('form-success');
             if (successMsg) {
               successMsg.classList.remove('hidden');
 
-              // Create mailto link
-              const subject = encodeURIComponent('Pesan dari Portfolio Website');
-              const body = encodeURIComponent(
-                `Nama: ${nameInput.value}\nEmail: ${emailInput.value}\n\nPesan:\n${messageInput.value}`
+              // Open WhatsApp with prefilled message
+              const message = encodeURIComponent(
+                `Halo, saya ingin menghubungi Anda!\n\nNama: ${nameInput.value}\nEmail: ${emailInput.value}\n\nPesan:\n${messageInput.value}`
               );
-              window.location.href = `mailto:idank1945@gmail.com?subject=${subject}&body=${body}`;
+              const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+              window.open(waUrl, '_blank');
 
               // Reset form
               contactForm.reset();
@@ -1515,8 +1452,11 @@
               // Hide success message after 5 seconds
               setTimeout(() => {
                 successMsg.classList.add('hidden');
+                submitButton && (submitButton.disabled = false);
               }, 5000);
             }
+          } else {
+            submitButton && (submitButton.disabled = false);
           }
         });
       }
