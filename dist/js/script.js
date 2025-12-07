@@ -686,3 +686,286 @@ ScrollTrigger.config({
 window.addEventListener("resize", () => {
   ScrollTrigger.refresh();
 });
+
+// ============================================
+// PROJECT MODAL FUNCTIONALITY
+// ============================================
+
+// Store scroll position
+let scrollPosition = 0;
+
+// Project data
+const projectsData = {
+  project1: {
+    title: "E-Commerce Platform",
+    image: "dist/img/project/wlstore.jpg",
+    description:
+      "Platform e-commerce lengkap yang dibangun menggunakan stack MEVN (MongoDB, Express.js, Vue.js, Node.js). Aplikasi ini menyediakan pengalaman berbelanja online yang intuitif dengan sistem autentikasi, manajemen produk, keranjang belanja, dan checkout yang aman.",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "Vue.js",
+      "Node.js",
+      "Tailwind CSS",
+      "JWT Authentication",
+    ],
+    features: [
+      "Sistem autentikasi user dengan JWT",
+      "Katalog produk dengan filter dan pencarian",
+      "Keranjang belanja dengan real-time update",
+      "Halaman checkout dengan validasi form",
+      "Dashboard admin untuk manajemen produk",
+      "Responsive design untuk semua device",
+      "Dark mode support",
+    ],
+    demoLink: "#",
+    githubLink: "#",
+  },
+  project2: {
+    title: "Product Management System",
+    image: "dist/img/project/crud-simpel.jpg",
+    description:
+      "Sistem manajemen produk berbasis web yang memungkinkan administrator untuk melakukan operasi CRUD (Create, Read, Update, Delete) dengan mudah. Aplikasi ini dilengkapi dengan interface yang user-friendly dan validasi data yang ketat untuk memastikan integritas data.",
+    technologies: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery"],
+    features: [
+      "CRUD operations untuk manajemen produk",
+      "Upload dan preview gambar produk",
+      "Sistem validasi form yang comprehensive",
+      "Search dan filter produk",
+      "Pagination untuk data produk",
+      "Export data ke Excel/PDF",
+      "Responsive UI dengan Bootstrap",
+    ],
+    demoLink: "#",
+    githubLink: "#",
+  },
+};
+
+// Open modal function
+function openProjectModal(projectId) {
+  const modal = document.getElementById("projectModal");
+  const modalContent = document.getElementById("modalContent");
+  const project = projectsData[projectId];
+
+  if (!modal || !modalContent || !project) return;
+
+  // Populate modal with project data
+  document.getElementById("modalImage").src = project.image;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDescription").textContent = project.description;
+
+  // Technologies
+  const techContainer = document.getElementById("modalTech");
+  techContainer.innerHTML = "";
+  project.technologies.forEach((tech) => {
+    const badge = document.createElement("span");
+    badge.className =
+      "px-4 py-2 text-sm font-bold text-white rounded-full bg-gradient-to-r from-purple-500 to-indigo-500";
+    badge.textContent = tech;
+    techContainer.appendChild(badge);
+  });
+
+  // Features
+  const featuresContainer = document.getElementById("modalFeatures");
+  featuresContainer.innerHTML = "";
+  project.features.forEach((feature) => {
+    const li = document.createElement("li");
+    li.className = "flex items-start gap-2 text-slate-700 dark:text-slate-300";
+    li.innerHTML = `
+      <svg class="w-5 h-5 mt-1 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <span>${feature}</span>
+    `;
+    featuresContainer.appendChild(li);
+  });
+
+  // Links
+  const demoLink = document.getElementById("modalDemoLink");
+  const githubLink = document.getElementById("modalGithubLink");
+
+  if (project.demoLink && project.demoLink !== "#") {
+    demoLink.href = project.demoLink;
+    demoLink.classList.remove("hidden");
+  } else {
+    demoLink.classList.add("hidden");
+  }
+
+  if (project.githubLink && project.githubLink !== "#") {
+    githubLink.href = project.githubLink;
+    githubLink.classList.remove("hidden");
+  } else {
+    githubLink.classList.add("hidden");
+  }
+
+  // Show modal with animation
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  // Store current scroll position
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Prevent body scroll and maintain position
+  document.documentElement.classList.add("modal-open");
+  document.body.classList.add("modal-open");
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+
+  // Trigger animation
+  setTimeout(() => {
+    modalContent.classList.remove("scale-95", "opacity-0");
+    modalContent.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+// Close modal function
+function closeProjectModal() {
+  const modal = document.getElementById("projectModal");
+  const modalContent = document.getElementById("modalContent");
+
+  if (!modal || !modalContent) return;
+
+  // Animate out
+  modalContent.classList.remove("scale-100", "opacity-100");
+  modalContent.classList.add("scale-95", "opacity-0");
+
+  // Hide modal after animation
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    // Restore body scroll
+    document.documentElement.classList.remove("modal-open");
+    document.body.classList.remove("modal-open");
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
+  }, 300);
+}
+
+// Close modal with ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeProjectModal();
+    closeAchievementModal();
+  }
+});
+
+// Prevent modal content click from closing modal
+document.addEventListener("DOMContentLoaded", () => {
+  const modalContent = document.getElementById("modalContent");
+  if (modalContent) {
+    modalContent.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  const achievementModalContent = document.getElementById(
+    "achievementModalContent"
+  );
+  if (achievementModalContent) {
+    achievementModalContent.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+});
+
+// ============================================
+// ACHIEVEMENT MODAL FUNCTIONALITY
+// ============================================
+
+// Achievement data
+const achievementsData = {
+  achievement1: {
+    title: "Sertifikat Eskul Mikrotik",
+    image: "dist/img/portfolio/eskul.jpeg",
+    description:
+      "Sertifikat yang diberikan atas partisipasi aktif dan pencapaian dalam kegiatan ekstrakurikuler Mikrotik. Mempelajari dasar-dasar konfigurasi router, networking, dan manajemen jaringan menggunakan MikroTik RouterOS.",
+  },
+  achievement2: {
+    title: "Sertifikat Mikrotik PT. Sanken",
+    image: "dist/img/portfolio/sanken.jpeg",
+    description:
+      "Sertifikat pelatihan resmi dari PT. Sanken Indonesia yang mengakui kompetensi dalam konfigurasi dan manajemen jaringan menggunakan perangkat MikroTik. Pelatihan ini mencakup routing, firewall, bandwidth management, dan network security.",
+  },
+  achievement3: {
+    title: "Sertifikat LSP Junior Network Administrator",
+    image: "dist/img/portfolio/lsp_jna.jpeg",
+    description:
+      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Network Administrator. Sertifikat ini memvalidasi kemampuan dalam instalasi, konfigurasi, dan troubleshooting jaringan komputer sesuai standar SKKNI (Standar Kompetensi Kerja Nasional Indonesia).",
+  },
+  achievement4: {
+    title: "Sertifikat LSP Junior Web Developer",
+    image: "dist/img/portfolio/lsp_jwd.jpeg",
+    description:
+      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Web Developer. Mencakup kemampuan dalam HTML, CSS, JavaScript, dan pengembangan website responsif sesuai standar industri dan SKKNI.",
+  },
+};
+
+// Open achievement modal function
+function openAchievementModal(achievementId) {
+  const modal = document.getElementById("achievementModal");
+  const modalContent = document.getElementById("achievementModalContent");
+  const achievement = achievementsData[achievementId];
+
+  if (!modal || !modalContent || !achievement) return;
+
+  // Populate modal with achievement data
+  document.getElementById("achievementModalImage").src = achievement.image;
+  document.getElementById("achievementModalTitle").textContent =
+    achievement.title;
+  document.getElementById("achievementModalDescription").textContent =
+    achievement.description;
+
+  // Show modal with animation
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  // Store current scroll position
+  scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Prevent body scroll and maintain position
+  document.documentElement.classList.add("modal-open");
+  document.body.classList.add("modal-open");
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+
+  // Trigger animation
+  setTimeout(() => {
+    modalContent.classList.remove("scale-95", "opacity-0");
+    modalContent.classList.add("scale-100", "opacity-100");
+  }, 10);
+}
+
+// Close achievement modal function
+function closeAchievementModal() {
+  const modal = document.getElementById("achievementModal");
+  const modalContent = document.getElementById("achievementModalContent");
+
+  if (!modal || !modalContent) return;
+
+  // Animate out
+  modalContent.classList.remove("scale-100", "opacity-100");
+  modalContent.classList.add("scale-95", "opacity-0");
+
+  // Hide modal after animation
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    // Restore body scroll
+    document.documentElement.classList.remove("modal-open");
+    document.body.classList.remove("modal-open");
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
+  }, 300);
+}

@@ -408,48 +408,43 @@
 
       <div class="flex flex-wrap justify-center w-full px-4 xl:mx-auto xl:w-10/12">
         <!-- Project 1 -->
-        <div class="relative p-4 mb-12 overflow-hidden md:w-1/2 group">
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
           <div
-            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove">
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openProjectModal('project1')">
             <div class="relative overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
               <img src="dist/img/project/wlstore.jpg" alt="E-Commerce" class="w-full rounded-lg">
               <div
-                class="absolute inset-0 flex flex-col items-center justify-center p-3 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-slate-900/80 dark:bg-slate-700/90 group-hover:opacity-100">
-                <h3 class="mb-2 text-base font-semibold text-indigo-200 md:text-xl dark:text-rose-300">E-Commerce</h3>
-                <p
-                  class="max-w-xs mx-auto text-xs leading-relaxed text-center break-words md:text-sm text-slate-100 dark:text-slate-300">
-                  Membuat platform e-commerce sederhana memakai teknologi MEVN dengan desain yang ramah pengguna dan
-                  fungsionalitas yang sesuai.
-                </p>
-              </div>
+                class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-slate-900/80 dark:bg-slate-700/90 group-hover:opacity-100">
+                <h3 class="mb-2 text-lg font-semibold text-center text-indigo-200 md:text-xl dark:text-rose-300">
+                  E-Commerce</h3>
 
+                <button
+                  class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                  Lihat Detail
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="relative p-4 mb-12 overflow-hidden md:w-1/2 group">
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
           <div
-            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove">
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openProjectModal('project2')">
             <div class="relative overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
-              <img src="dist/img/project/crud-simpel.jpg" alt="E-Commerce" class="w-full rounded-lg">
-
-
+              <img src="dist/img/project/crud-simpel.jpg" alt="Product Management" class="w-full rounded-lg">
               <div
-                class="absolute inset-0 flex flex-col items-center justify-center p-5 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-slate-900/80 dark:bg-slate-700/90 group-hover:opacity-100">
+                class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-slate-900/80 dark:bg-slate-700/90 group-hover:opacity-100">
+                <h3 class="mb-2 text-lg font-semibold text-center text-indigo-200 md:text-xl dark:text-rose-300">
+                  Product Management System
+                </h3>
 
-
-                <div
-                  class="overflow-y-auto text-center max-h-32 scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-slate-700">
-                  <h3 class="text-xl font-semibold text-indigo-200 sm:text-sm dark:text-rose-300">
-                    Product Management System
-                  </h3>
-                  <p class="mt-2 sm:text-sm text-slate-100 dark:text-slate-300">
-                    Membuat sistem manajemen produk sederhana yang memungkinkan admin untuk menambah, mengedit, dan
-                    menghapus produk dengan mudah.
-                  </p>
-                </div>
-
+                <button
+                  class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                  Lihat Detail
+                </button>
               </div>
             </div>
           </div>
@@ -464,6 +459,122 @@
 
 
   <!-- Portfolio Section End -->
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 items-center justify-center hidden">
+    <!-- Backdrop with blur -->
+    <div class="absolute inset-0 transition-all duration-300 bg-black/30 backdrop-blur-md"
+      onclick="closeProjectModal()"></div>
+
+    <!-- Modal Content -->
+    <div
+      class="relative z-10 w-full max-w-4xl mx-4 overflow-hidden transition-all duration-300 transform scale-95 opacity-0 bg-white/90 backdrop-blur-2xl dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/30 dark:border-slate-700/50 max-h-[90vh]"
+      id="modalContent">
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()"
+        class="absolute z-20 p-2 text-white transition-all duration-300 bg-red-500 rounded-full top-4 right-4 hover:bg-red-600 hover:scale-110">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Modal Body -->
+      <div class="overflow-y-auto max-h-[90vh]">
+        <!-- Project Image -->
+        <div class="relative w-full h-64 overflow-hidden md:h-96">
+          <img id="modalImage" src="" alt="Project" class="object-cover w-full h-full">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="p-6 md:p-8">
+          <h2 id="modalTitle"
+            class="mb-4 text-3xl font-bold text-transparent md:text-4xl bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text">
+          </h2>
+
+          <p id="modalDescription" class="mb-6 text-base leading-relaxed md:text-lg text-slate-700 dark:text-slate-300">
+          </p>
+
+          <!-- Technologies -->
+          <div class="mb-6">
+            <h3 class="mb-3 text-xl font-bold text-slate-800 dark:text-white">Teknologi yang Digunakan:</h3>
+            <div id="modalTech" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- Features -->
+          <div class="mb-6">
+            <h3 class="mb-3 text-xl font-bold text-slate-800 dark:text-white">Fitur Utama:</h3>
+            <ul id="modalFeatures" class="space-y-2"></ul>
+          </div>
+
+          <!-- Links -->
+          <div class="flex flex-wrap gap-4">
+            <a id="modalDemoLink" href="#" target="_blank"
+              class="hidden px-6 py-3 text-base font-bold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600 hover:scale-105">
+              <span class="flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+                Live Demo
+              </span>
+            </a>
+            <a id="modalGithubLink" href="#" target="_blank"
+              class="hidden px-6 py-3 text-base font-bold transition-all duration-300 border-2 rounded-lg text-slate-800 dark:text-white border-slate-800 dark:border-white hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-slate-800 hover:scale-105">
+              <span class="flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                  </path>
+                </svg>
+                GitHub
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Project Modal End -->
+
+  <!-- Achievement Modal -->
+  <div id="achievementModal" class="fixed inset-0 z-50 items-center justify-center hidden">
+    <!-- Backdrop with blur -->
+    <div class="absolute inset-0 transition-all duration-300 bg-black/30 backdrop-blur-md"
+      onclick="closeAchievementModal()"></div>
+
+    <!-- Modal Content -->
+    <div
+      class="relative z-10 w-full max-w-3xl mx-4 overflow-hidden transition-all duration-300 transform scale-95 opacity-0 bg-white/90 backdrop-blur-2xl dark:bg-slate-900/90 rounded-2xl shadow-2xl border border-white/30 dark:border-slate-700/50 max-h-[90vh]"
+      id="achievementModalContent">
+      <!-- Close Button -->
+      <button onclick="closeAchievementModal()"
+        class="absolute z-20 p-2 text-white transition-all duration-300 bg-red-500 rounded-full top-4 right-4 hover:bg-red-600 hover:scale-110">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Modal Body -->
+      <div class="overflow-y-auto max-h-[90vh]">
+        <!-- Certificate Image -->
+        <div class="relative w-full">
+          <img id="achievementModalImage" src="" alt="Certificate" class="object-contain w-full">
+        </div>
+
+        <!-- Certificate Details -->
+        <div class="p-6 md:p-8">
+          <h2 id="achievementModalTitle"
+            class="mb-4 text-2xl font-bold text-transparent md:text-3xl bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text">
+          </h2>
+
+          <p id="achievementModalDescription"
+            class="mb-6 text-base leading-relaxed md:text-lg text-slate-700 dark:text-slate-300"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Achievement Modal End -->
 
   <!-- Pencapaian start -->
   <section class="pb-16 transition-colors duration-300 pt-36 bg-slate-100 dark:bg-slate-900">
@@ -480,229 +591,103 @@
 
       <div class="flex flex-wrap justify-center w-full px-4 xl:mx-auto xl:w-10/12">
         <!-- Pencapaian 1 -->
-
-        <div class="p-4 mb-12 overflow-hidden md:w-1/2 group">
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
           <div
-            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"">
-            <div class=" relative p-2 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg ">
-            <button type=" button" data-modal-target="portfolio-modal-1" class="w-full">
-            <img src="dist/img/portfolio/eskul.jpeg" alt="Sertifikat Eskul Mikrotik"
-              class="w-full transition-transform duration-300 rounded-lg group-hover:scale-105" loading="lazy">
-            <div
-              class="absolute inset-0 flex flex-col items-center justify-center p-5 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
-              <h3 class="text-xl font-semibold text-indigo-200 dark:text-rose-300">Sertifikat Eskul Mikrotik</h3>
-            </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div id="portfolio-modal-1" class="fixed inset-0 z-50 hidden overflow-auto bg-black/50 backdrop-blur-sm"
-          role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <div class="flex items-center justify-center min-h-screen px-4 text-center">
-            <!-- Modal overlay -->
-            <div class="absolute inset-0 transition-opacity bg-black/50" aria-hidden="true"></div>
-
-            <!-- Modal content -->
-            <div
-              class="relative w-full max-w-2xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl dark:bg-slate-800">
-              <div class="flex items-center justify-between mb-4">
-
-                <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" data-modal-close>
-                  <span class="sr-only">Tutup</span>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              <div class="mt-4">
-                <img src="dist/img/portfolio/eskul.jpeg" alt="Sertifikat Eskul Mikrotik"
-                  class="w-full transition-transform duration-300 rounded-lg " loading="lazy">
-              </div>
-
-              <div class="mt-6 text-right">
-                <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  data-modal-close>
-                  Tutup
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openAchievementModal('achievement1')">
+            <div class="relative p-2 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
+              <img src="dist/img/portfolio/eskul.jpeg" alt="Sertifikat Eskul Mikrotik"
+                class="w-full transition-transform duration-300 rounded-lg group-hover:scale-105" loading="lazy">
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
+                <h3
+                  class="mb-2 text-base font-semibold text-center text-indigo-200 md:mb-3 md:text-xl dark:text-rose-300">
+                  Sertifikat Eskul Mikrotik</h3>
+                <button
+                  class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                  Lihat Sertifikat
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
 
-      <!-- Pencapaian 2 -->
-      <div class="p-4 mb-12 overflow-hidden md:w-1/2 group">
-        <div
-          class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove">
-          <div class="relative p-2 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg ">
-            <button type=" button" data-modal-target="portfolio-modal-2" class="w-full">
+        <!-- Pencapaian 2 -->
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
+          <div
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openAchievementModal('achievement2')">
+            <div class="relative p-2 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
               <img src="dist/img/portfolio/sanken.jpeg" alt="Sertifikat Mikrotik PT.sanken"
                 class="w-full transition-transform duration-300 rounded-lg group-hover:scale-105" loading="lazy">
               <div
-                class="absolute inset-0 flex flex-col items-center justify-center p-5 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
-                <h3 class="text-xl font-semibold text-indigo-200 dark:text-rose-300">Sertifikat Mikrotik PT.Sanken</h3>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div id="portfolio-modal-2" class="fixed inset-0 z-50 hidden overflow-auto bg-black/50 backdrop-blur-sm"
-          role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <div class="flex items-center justify-center min-h-screen px-4 text-center">
-            <!-- Modal overlay -->
-            <div class="absolute inset-0 transition-opacity bg-black/50" aria-hidden="true"></div>
-
-            <!-- Modal content -->
-            <div
-              class="relative w-full max-w-2xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl dark:bg-slate-800">
-              <div class="flex items-center justify-between mb-4">
-
-                <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" data-modal-close>
-                  <span class="sr-only">Tutup</span>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              <div class="mt-4">
-                <img src="dist/img/portfolio/sanken.jpeg" alt="Sertifikat Mikrotik PT.sanken"
-                  class="w-full transition-transform duration-300 rounded-lg" loading="lazy">
-              </div>
-
-              <div class="mt-6 text-right">
-                <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  data-modal-close>
-                  Tutup
+                class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
+                <h3
+                  class="mb-2 text-base font-semibold text-center text-indigo-200 md:mb-3 md:text-xl dark:text-rose-300">
+                  Sertifikat Mikrotik PT.Sanken
+                </h3>
+                <button
+                  class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                  Lihat Sertifikat
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Pencapaian 3 -->
-      <div class="p-4 mb-12 overflow-hidden md:w-1/2 group">
-        <div
-          class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove">
-          <div class="relative p-3 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
-            <button type="button" data-modal-target="portfolio-modal-3" class="w-full">
+        <!-- Pencapaian 3 -->
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
+          <div
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openAchievementModal('achievement3')">
+            <div class="relative p-3 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
               <div class="w-full aspect-[4/3]">
-                <img src="dist/img/portfolio/lsp_jna.jpeg" alt="Sertifikat LSP Junior Network
-                  Administrator"
+                <img src="dist/img/portfolio/lsp_jna.jpeg" alt="Sertifikat LSP Junior Network Administrator"
                   class="object-cover w-full h-full transition-transform duration-300 rounded-lg group-hover:scale-105"
                   loading="lazy">
               </div>
-
               <div
-                class="absolute inset-0 flex flex-col items-center justify-center p-5 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
-                <h3 class="text-xl font-semibold text-indigo-200 dark:text-rose-300">Sertifikat LSP Junior Network
-                  Administrator</h3>
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div id="portfolio-modal-3" class="fixed inset-0 z-50 hidden overflow-auto bg-black/50 backdrop-blur-sm"
-          role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <div class="flex items-center justify-center min-h-screen px-4 text-center">
-            <!-- Modal overlay -->
-            <div class="absolute inset-0 transition-opacity bg-black/50" aria-hidden="true"></div>
-
-            <!-- Modal content -->
-            <div
-              class="relative w-full max-w-2xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl dark:bg-slate-800">
-              <div class="flex items-center justify-between mb-4">
-
-                <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" data-modal-close>
-                  <span class="sr-only">Tutup</span>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              <div class="mt-4">
-                <img src="dist/img/portfolio/lsp_jna.jpeg" alt="Sertifikat LSP Junior Network
-                  Administrator" class="w-full transition-transform duration-300 rounded-lg " loading="lazy">
-              </div>
-
-              <div class="mt-6 text-right">
-                <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  data-modal-close>
-                  Tutup
+                class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
+                <h3
+                  class="mb-2 text-base font-semibold text-center text-indigo-200 md:mb-3 md:text-xl dark:text-rose-300">
+                  Sertifikat LSP
+                  Junior Network Administrator</h3>
+                <button
+                  class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                  Lihat Sertifikat
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Pencapaian 4 -->
-      <div class="p-4 mb-12 overflow-hidden md:w-1/2 group">
-        <div
-          class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove">
-          <div class="relative p-3 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg ">
-            <button type="button" data-modal-target="portfolio-modal-4">
+
+        <!-- Pencapaian 4 -->
+        <div class="w-full p-3 mb-8 overflow-hidden md:w-1/2 md:p-4 md:mb-12 group">
+          <div
+            class="relative transition-all duration-300 bg-white border border-indigo-600 rounded-lg shadow-lg cursor-pointer dark:bg-slate-800 dark:shadow-slate-700/50 group-hover:border-emerald-400 group-hover:shadow-lg group-hover:animate-borderMove"
+            onclick="openAchievementModal('achievement4')">
+            <div class="relative p-3 overflow-hidden transition-transform duration-500 ease-in-out rounded-lg">
               <div class="w-full aspect-[4/3]">
-                <img src="dist/img/portfolio/lsp_jwd.jpeg" alt="Sertifikat LSP Junior Web
-                    Developer"
+                <img src="dist/img/portfolio/lsp_jwd.jpeg" alt="Sertifikat LSP Junior Web Developer"
                   class="object-cover w-full h-full transition-transform duration-300 rounded-lg group-hover:scale-105"
                   loading="lazy">
                 <div
-                  class="absolute inset-0 flex flex-col items-center justify-center p-5 text-white transition-opacity duration-300 rounded-lg opacity-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
-                  <h3 class="text-xl font-semibold text-indigo-200 dark:text-rose-300">Sertifikat LSP Junior Web
-                    Developer
-                  </h3>
+                  class="absolute inset-0 flex flex-col items-center justify-center p-4 text-white transition-opacity duration-300 rounded-lg opacity-0 md:p-5 bg-gradient-to-b from-black/60 via-black/40 to-black/80 group-hover:opacity-100">
+                  <h3
+                    class="mb-2 text-base font-semibold text-center text-indigo-200 md:mb-3 md:text-xl dark:text-rose-300">
+                    Sertifikat LSP
+                    Junior Web Developer</h3>
+                  <button
+                    class="px-5 py-2 text-sm font-bold text-white transition-all duration-300 rounded-lg md:px-6 bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-600 hover:to-indigo-600">
+                    Lihat Sertifikat
+                  </button>
                 </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-        <div id="portfolio-modal-4" class="fixed inset-0 z-50 hidden overflow-auto bg-black/50 backdrop-blur-sm"
-          role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <div class="flex items-center justify-center min-h-screen px-4 text-center">
-            <!-- Modal overlay -->
-            <div class="absolute inset-0 transition-opacity bg-black/50" aria-hidden="true"></div>
-
-            <!-- Modal content -->
-            <div
-              class="relative w-full max-w-2xl p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl dark:bg-slate-800">
-              <div class="flex items-center justify-between mb-4">
-
-                <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" data-modal-close>
-                  <span class="sr-only">Tutup</span>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              <div class="mt-4">
-                <img src="dist/img/portfolio/lsp_jwd.jpeg" alt="Sertifikat LSP Junior Web Developer"
-                  class="w-full transition-transform duration-300 rounded-lg " loading="lazy">
-              </div>
-
-              <div class="mt-6 text-right">
-                <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  data-modal-close>
-                  Tutup
-                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
   <!-- pencapaian end -->
