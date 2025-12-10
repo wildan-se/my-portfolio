@@ -757,10 +757,18 @@ function openProjectModal(projectId) {
   // Technologies
   const techContainer = document.getElementById("modalTech");
   techContainer.innerHTML = "";
-  project.technologies.forEach((tech) => {
+  project.technologies.forEach((tech, index) => {
     const badge = document.createElement("span");
-    badge.className =
-      "px-4 py-2 text-sm font-bold text-white rounded-full bg-gradient-to-r from-purple-500 to-indigo-500";
+    const gradients = [
+      "from-emerald-500 via-teal-500 to-cyan-500",
+      "from-purple-500 via-pink-500 to-rose-500",
+      "from-indigo-500 via-blue-500 to-cyan-500",
+      "from-orange-500 via-red-500 to-pink-500",
+      "from-green-500 via-emerald-500 to-teal-500",
+      "from-violet-500 via-purple-500 to-fuchsia-500",
+    ];
+    const gradient = gradients[index % gradients.length];
+    badge.className = `px-4 py-2 text-sm font-bold text-white rounded-full bg-gradient-to-r ${gradient} shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 cursor-pointer`;
     badge.textContent = tech;
     techContainer.appendChild(badge);
   });
@@ -768,15 +776,18 @@ function openProjectModal(projectId) {
   // Features
   const featuresContainer = document.getElementById("modalFeatures");
   featuresContainer.innerHTML = "";
-  project.features.forEach((feature) => {
+  project.features.forEach((feature, index) => {
     const li = document.createElement("li");
-    li.className = "flex items-start gap-2 text-slate-700 dark:text-slate-300";
+    li.className =
+      "flex items-start gap-3 text-slate-700 dark:text-slate-300 group";
     li.innerHTML = `
-      <svg class="w-5 h-5 mt-1 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      <svg class="w-6 h-6 mt-0.5 text-emerald-500 dark:text-emerald-400 flex-shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
       </svg>
-      <span>${feature}</span>
+      <span class="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">${feature}</span>
     `;
+    li.style.animationDelay = `${index * 0.1}s`;
+    li.classList.add("opacity-0", "animate-fade-in-up");
     featuresContainer.appendChild(li);
   });
 
