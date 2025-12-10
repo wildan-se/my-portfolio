@@ -2314,107 +2314,106 @@ code,
 /* Webkit browsers (Chrome, Safari, Edge) */
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
-}
-
-:is(.dark *)::-webkit-scrollbar-track {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
-}
-
-::-webkit-scrollbar-track {
+  background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.95),
+      rgba(30, 41, 59, 0.95)
+    );
   border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
-}
-
-:is(.dark *)::-webkit-scrollbar-thumb {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
-}
-
-::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981 0%, #059669 50%, #047857 100%);
   border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6),
+      0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: neonPulse 2s ease-in-out infinite;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
-}
-
-:is(.dark *)::-webkit-scrollbar-thumb:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
-}
-
-::-webkit-scrollbar-thumb:hover {
-  border-width: 1px;
+  background: linear-gradient(180deg, #34d399 0%, #10b981 50%, #059669 100%);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.8),
+      0 0 30px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.4),
+      inset 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
-}
-
-:is(.dark *)::-webkit-scrollbar-thumb:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
+  background: linear-gradient(180deg, #6ee7b7 0%, #34d399 50%, #10b981 100%);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 1), 0 0 40px rgba(16, 185, 129, 0.8),
+      0 0 60px rgba(16, 185, 129, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 /* Firefox */
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(148 163 184) rgb(241 245 249);
+  scrollbar-color: #10b981 rgba(15, 23, 42, 0.95);
 }
 
 .dark * {
-  scrollbar-color: rgb(71 85 105) rgb(15 23 42);
+  scrollbar-color: #10b981 rgba(15, 23, 42, 0.95);
 }
 
-/* Modal Scrollbar - lebih kecil dan elegant */
+/* Modal Scrollbar - sama dengan main scrollbar */
 
 .modal-scroll::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 .modal-scroll::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.modal-scroll::-webkit-scrollbar-thumb {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
-}
-
-.modal-scroll:is(.dark *)::-webkit-scrollbar-thumb {
-  --tw-bg-opacity: 1;
-  background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
-}
-
-.modal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.95),
+      rgba(30, 41, 59, 0.95)
+    );
   border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981 0%, #059669 50%, #047857 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6),
+      0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  animation: neonPulse 2s ease-in-out infinite;
 }
 
 .modal-scroll::-webkit-scrollbar-thumb:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
+  background: linear-gradient(180deg, #34d399 0%, #10b981 50%, #059669 100%);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.8),
+      0 0 30px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.4),
+      inset 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.modal-scroll:is(.dark *)::-webkit-scrollbar-thumb:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
+.modal-scroll::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #6ee7b7 0%, #34d399 50%, #10b981 100%);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 1), 0 0 40px rgba(16, 185, 129, 0.8),
+      0 0 60px rgba(16, 185, 129, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Neon Pulse Animation */
+
+@keyframes neonPulse {
+  0%,
+    100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6),
+        0 0 20px rgba(16, 185, 129, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.8),
+        0 0 30px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.4),
+        inset 0 0 15px rgba(255, 255, 255, 0.3);
+  }
 }
 
 .font-medium {
@@ -2437,7 +2436,7 @@ code,
   text-shadow: 3px 5px 2px #047857;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar with Neon Effect */
 
 /* Enhanced Typography */
 
