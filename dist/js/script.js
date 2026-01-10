@@ -1012,13 +1012,13 @@ const achievementsData = {
     title: "Sertifikat LSP Junior Network Administrator",
     image: "dist/img/portfolio/lsp_jna.jpeg",
     description:
-      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Network Administrator. Sertifikat ini memvalidasi kemampuan dalam instalasi, konfigurasi, dan troubleshooting jaringan komputer sesuai standar SKKNI (Standar Kompetensi Kerja Nasional Indonesia).",
+      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Network Administrator. Sertifikat ini memvalidasi kemampuan dalam instalasi, konfigurasi, dan troubleshooting jaringan komputer ",
   },
   achievement4: {
     title: "Sertifikat LSP Junior Web Developer",
     image: "dist/img/portfolio/lsp_jwd.jpeg",
     description:
-      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Web Developer. Mencakup kemampuan dalam HTML, CSS, JavaScript, dan pengembangan website responsif sesuai standar industri dan SKKNI.",
+      "Sertifikasi kompetensi dari Lembaga Sertifikasi Profesi (LSP) sebagai Junior Web Developer. Mencakup kemampuan dalam HTML, CSS, Bootstrap, PHP, JavaScript ",
   },
 };
 
