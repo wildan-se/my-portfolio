@@ -722,19 +722,89 @@ const projectsData = {
     githubLink: "#",
   },
   project2: {
-    title: "Product Management System",
+    title: "Aplikasi Manajemen Produk & Garment",
     image: "dist/img/project/crud-simpel.jpg",
     description:
-      "Sistem manajemen produk berbasis web yang memungkinkan administrator untuk melakukan operasi CRUD (Create, Read, Update, Delete) dengan mudah. Aplikasi ini dilengkapi dengan interface yang user-friendly dan validasi data yang ketat untuk memastikan integritas data.",
-    technologies: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery"],
+      "Aplikasi Manajemen Produk & Garment adalah sistem manajemen berbasis web untuk mengelola data produk fashion dan toko garment. Aplikasi ini dibangun menggunakan Express.js dan MongoDB dengan antarmuka yang responsif menggunakan Tailwind CSS. Cocok untuk bisnis fashion kecil hingga menengah yang ingin mengelola inventori produk dan data toko mereka secara digital.",
+    technologies: ["Express.js", "MongoDB", "EJS", "Tailwind CSS", "Node.js"],
     features: [
-      "CRUD operations untuk manajemen produk",
-      "Upload dan preview gambar produk",
-      "Sistem validasi form yang comprehensive",
-      "Search dan filter produk",
-      "Pagination untuk data produk",
-      "Export data ke Excel/PDF",
-      "Responsive UI dengan Bootstrap",
+      "CRUD lengkap untuk produk fashion (nama, brand, harga, warna, kategori, stok)",
+      "Kategori produk: Baju, Celana, Aksesoris, Jaket, Sepatu, Topi",
+      "CRUD lengkap untuk data toko garment (nama, lokasi, kontak)",
+      "Fitur pencarian berdasarkan nama atau lokasi toko",
+      "Relasi antara garment dan produk (satu toko dapat memiliki banyak produk)",
+      "Flash messages untuk notifikasi operasi CRUD",
+      "Validasi data otomatis dengan Mongoose Schema Validation",
+      "Auto-delete cascade (produk terhapus otomatis saat garment dihapus)",
+      "Session management untuk pengalaman pengguna yang lebih baik",
+      "Error handling yang terstruktur",
+    ],
+    demoLink: "#",
+    githubLink: "#",
+  },
+  project3: {
+    title: "MyBlog - Aplikasi Blog Fullstack Modern",
+    image: "dist/img/project/myblog.jpg",
+    description:
+      "MyBlog adalah platform blog fullstack yang dibangun dengan teknologi modern, menggabungkan Vue.js 3 untuk frontend dan Express.js untuk backend dengan MongoDB sebagai database. Aplikasi ini dirancang untuk memberikan pengalaman blogging yang lengkap dengan fitur manajemen konten yang powerful, autentikasi pengguna yang aman, dan antarmuka yang responsif.",
+    technologies: [
+      "Vue.js 3",
+      "Express.js",
+      "MongoDB",
+      "Node.js",
+      "Tailwind CSS",
+      "Vuex",
+      "JWT",
+      "Quill Editor",
+      "Vite",
+    ],
+    features: [
+      "Rich Text Editor dengan Quill untuk membuat dan mengedit postingan",
+      "CRUD lengkap untuk postingan blog dengan manajemen kategori",
+      "Sistem autentikasi JWT dengan role-based authorization",
+      "Upload dan manajemen gambar dengan Multer",
+      "Sistem komentar pada postingan",
+      "SEO optimization dengan meta title, description, dan focus keyword",
+      "Status postingan (draft, published, scheduled) dengan penjadwalan publikasi otomatis",
+      "Tracking views dan likes, featured posts dan ordering",
+      "Reset password via email dengan Nodemailer",
+      "Security features: Helmet, Rate limiting, Input sanitization",
+      "Panel Admin untuk manajemen konten lengkap",
+      "Revision tracking untuk histori perubahan",
+    ],
+    demoLink: "#",
+    githubLink: "#",
+  },
+  project4: {
+    title: "Smart Home IoT Monitoring & Control System",
+    image: "dist/img/project/smarthome.jpg",
+    description:
+      "Sistem monitoring dan kontrol smart home berbasis IoT yang mengintegrasikan ESP32 dengan web dashboard untuk mengontrol dan memonitor perangkat rumah pintar secara real-time. Sistem ini menggunakan MQTT protocol untuk komunikasi real-time antara hardware dan web interface dengan fitur kontrol pintu RFID, monitoring suhu & kelembaban, dan kontrol kipas otomatis.",
+    technologies: [
+      "ESP32",
+      "PHP",
+      "MySQL",
+      "MQTT",
+      "AdminLTE",
+      "Chart.js",
+      "Bootstrap",
+      "jQuery",
+      "Arduino",
+      "RFID (MFRC522)",
+    ],
+    features: [
+      "Dashboard real-time monitoring suhu, kelembaban, dan statistik akses RFID",
+      "Visualisasi data dengan Chart.js dan status koneksi WiFi/MQTT ESP32",
+      "Kontrol pintu otomatis dengan RFID (MFRC522) dan servo motor",
+      "Manajemen kartu RFID dengan log akses (granted/denied) dan mode manual/auto",
+      "Kontrol kipas otomatis berdasarkan threshold suhu dengan mode manual/auto",
+      "Monitoring suhu & kelembaban real-time dengan sensor DHT22",
+      "WiFi Configuration Portal untuk konfigurasi ESP32 via web",
+      "Sistem autentikasi dengan session management dan role-based access",
+      "Export data RFID logs, DHT sensor, dan door access ke Excel/PDF",
+      "Komunikasi real-time ESP32 dengan Web via MQTT protocol (Shiftr.io)",
+      "LCD I2C 16x2 display untuk status lokal pada hardware",
+      "Data logger lengkap dengan grafik history dan reporting",
     ],
     demoLink: "#",
     githubLink: "#",
@@ -757,18 +827,53 @@ function openProjectModal(projectId) {
   // Technologies
   const techContainer = document.getElementById("modalTech");
   techContainer.innerHTML = "";
+
+  // Define color mapping for specific technologies with inline gradient styles
+  const techColors = {
+    "Express.js": "linear-gradient(to right, #ef4444, #dc2626, #b91c1c)",
+    MongoDB: "linear-gradient(to right, #22c55e, #16a34a, #15803d)",
+    "Mongoose ODM": "linear-gradient(to right, #dc2626, #f43f5e, #ec4899)",
+    EJS: "linear-gradient(to right, #ef4444, #dc2626, #e11d48)",
+    "Tailwind CSS": "linear-gradient(to right, #3b82f6, #2563eb, #06b6d4)",
+    "Node.js": "linear-gradient(to right, #059669, #10b981, #14b8a6)",
+    "Express Session": "linear-gradient(to right, #ef4444, #f97316, #dc2626)",
+    "Vue.js 3": "linear-gradient(to right, #10b981, #059669, #047857)",
+    Vuex: "linear-gradient(to right, #22c55e, #10b981, #059669)",
+    JWT: "linear-gradient(to right, #8b5cf6, #7c3aed, #6d28d9)",
+    "Quill Editor": "linear-gradient(to right, #06b6d4, #0891b2, #0e7490)",
+    Vite: "linear-gradient(to right, #a855f7, #9333ea, #7e22ce)",
+    Axios: "linear-gradient(to right, #3b82f6, #2563eb, #1d4ed8)",
+    Bcrypt: "linear-gradient(to right, #f97316, #ea580c, #c2410c)",
+    Nodemailer: "linear-gradient(to right, #06b6d4, #0284c7, #0369a1)",
+    ESP32: "linear-gradient(to right, #0891b2, #0e7490, #155e75)",
+    PHP: "linear-gradient(to right, #8b5cf6, #7c3aed, #6d28d9)",
+    MySQL: "linear-gradient(to right, #f97316, #ea580c, #0284c7)",
+    MQTT: "linear-gradient(to right, #a855f7, #9333ea, #7e22ce)",
+    AdminLTE: "linear-gradient(to right, #3b82f6, #2563eb, #1d4ed8)",
+    "Chart.js": "linear-gradient(to right, #ec4899, #db2777, #be185d)",
+    Bootstrap: "linear-gradient(to right, #8b5cf6, #7c3aed, #6d28d9)",
+    jQuery: "linear-gradient(to right, #0891b2, #0e7490, #155e75)",
+    Arduino: "linear-gradient(to right, #06b6d4, #0891b2, #0e7490)",
+    "RFID (MFRC522)": "linear-gradient(to right, #f97316, #ea580c, #c2410c)",
+  };
+
+  // Default gradients for other technologies
+  const defaultGradients = [
+    "linear-gradient(to right, #10b981, #14b8a6, #06b6d4)",
+    "linear-gradient(to right, #a855f7, #ec4899, #f43f5e)",
+    "linear-gradient(to right, #6366f1, #3b82f6, #06b6d4)",
+    "linear-gradient(to right, #f97316, #ef4444, #ec4899)",
+    "linear-gradient(to right, #22c55e, #10b981, #14b8a6)",
+    "linear-gradient(to right, #8b5cf6, #a855f7, #d946ef)",
+  ];
+
   project.technologies.forEach((tech, index) => {
     const badge = document.createElement("span");
-    const gradients = [
-      "from-emerald-500 via-teal-500 to-cyan-500",
-      "from-purple-500 via-pink-500 to-rose-500",
-      "from-indigo-500 via-blue-500 to-cyan-500",
-      "from-orange-500 via-red-500 to-pink-500",
-      "from-green-500 via-emerald-500 to-teal-500",
-      "from-violet-500 via-purple-500 to-fuchsia-500",
-    ];
-    const gradient = gradients[index % gradients.length];
-    badge.className = `px-4 py-2 text-sm font-bold text-white rounded-full bg-gradient-to-r ${gradient} shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 cursor-pointer`;
+    const gradient =
+      techColors[tech] || defaultGradients[index % defaultGradients.length];
+    badge.className =
+      "px-4 py-2 text-sm font-bold text-white transition-all duration-300 rounded-full shadow-lg cursor-pointer hover:scale-110 hover:shadow-xl";
+    badge.style.background = gradient;
     badge.textContent = tech;
     techContainer.appendChild(badge);
   });
